@@ -7,6 +7,7 @@ import 'Get_started/ui/screens/screen1.dart';
 
 void main() {
   runApp( MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
