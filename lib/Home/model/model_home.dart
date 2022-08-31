@@ -33,3 +33,16 @@ List <AppsRecentModel> appsRecentList =[
   AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
 
 ];
+class WorkSpaceModel{
+  Image img;
+  String title;
+  String email;
+  WorkSpaceModel({required this.email,required this.title,required this.img});
+}
+List<WorkSpaceModel> workSpaceList =[
+  WorkSpaceModel(img:Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,) ,email: "info@t-technologie.com",title:"Activation" ),
+  WorkSpaceModel(img:Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,) ,email: "info@t-technologie.com",title:"Activation" ),
+  WorkSpaceModel(img:Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,) ,email: "info@t-technologie.com",title:"Activation" ),
+  WorkSpaceModel(img:Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,) ,email: "info@t-technologie.com",title:"Activation" ),
+  WorkSpaceModel(img:Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,) ,email: "info@t-technologie.com",title:"Activation" ),
+];
