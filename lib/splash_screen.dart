@@ -50,6 +50,7 @@ class SplashScreenState extends State<SplashScreen>
                   ),
                   Text("Workiom",style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.bold),)
                 ],
+
               );
             }),
       ),
