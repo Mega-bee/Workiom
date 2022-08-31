@@ -13,7 +13,7 @@ Map<int, Color> color = const {
   900: Color.fromRGBO(4, 31, 206, 1.0),
 };
 MaterialColor NavBarColor = MaterialColor(0xFFF9F9F9, color);
-MaterialColor PrimaryColor = MaterialColor(0xFD6D6D6, color);
+MaterialColor PrimaryColor = MaterialColor(0xFFF9F9F9, color);
 
 
 
