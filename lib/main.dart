@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workiom/splash_screen.dart';
 import 'package:workiom/utils/style/Colors.dart';
 import 'NavigationBar/ui/Screen/NavigationBar.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: OnboardingScreen(),
+      home: SplashScreen(),
     );
   }
 }
