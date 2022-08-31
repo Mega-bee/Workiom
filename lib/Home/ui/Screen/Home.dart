@@ -20,6 +20,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Text("T-Technology"),
         titleTextStyle: TextStyle(
@@ -99,22 +100,20 @@ class _HomeState extends State<Home> {
                             ))
                       ],
                     ),
-                    SingleChildScrollView(
-                        child: Container(
-                          height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.3,
-                          child: ListView.builder(
-                            shrinkWrap: false,
-                            physics: BouncingScrollPhysics(
-                                parent: AlwaysScrollableScrollPhysics()),
-                            itemCount: favList.length,
-                            itemBuilder: (context, index) {
-                              return Favorite(favoriteModel: favList[index]);
-                            },
-                          ),
-                        )
+                    Container(
+                      height: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.3,
+                      child: ListView.builder(
+                        shrinkWrap: false,
+
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: favList.length,
+                        itemBuilder: (context, index) {
+                          return Favorite(favoriteModel: favList[index]);
+                        },
+                      ),
                     )
                   ],
                 )),
@@ -154,17 +153,16 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                SingleChildScrollView(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height*0.35,
-                      child:
-                    TabBarView(
-                      children: [
-                        Apps(),
-                        Icon(Icons.directions_car),
-                      ],
-                    ),
-                  )
+                Container(
+                  height: MediaQuery.of(context).size.height*0.55,
+
+                    child:
+                  TabBarView(
+                    children: [
+                      Apps(),
+                      Icon(Icons.directions_car),
+                    ],
+                  ),
                 )
                   ],
                 ))),

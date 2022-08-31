@@ -7,14 +7,15 @@ class Apps extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ListView.builder(
-            shrinkWrap: false,
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            itemCount: appsRecentList.length,
-            itemBuilder: (context, index) {
-              return AppsRecent(appsRecentModel: appsRecentList[index]);
-            }));
+    return Expanded(
+      child: ListView.builder(
+          shrinkWrap: false,
+          physics:
+             NeverScrollableScrollPhysics(),
+          itemCount: appsRecentList.length,
+          itemBuilder: (context, index) {
+            return Expanded(child: AppsRecent(appsRecentModel: appsRecentList[index]));
+          }),
+    );
   }
 }
