@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:workiom/utils/style/Colors.dart';
 import 'NavigationBar/ui/Screen/NavigationBar.dart';
 
+import 'Get_started/ui/screens/screen1.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: PrimaryColor,
-        ),
-        home: NavigationBarr()
+
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+      ),
+      home: mainPage(),
     );
   }
 }
+
