@@ -25,7 +25,7 @@ class _NavigationBarrState extends State<NavigationBarr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: PrimaryColor,
+      backgroundColor: Colors.white,
       body: screens[currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(

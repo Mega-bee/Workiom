@@ -24,13 +24,13 @@ class AppsRecentModel{
   AppsRecentModel({required this.title,required this.img,required this.text});
 }
 List <AppsRecentModel> appsRecentList =[
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
-  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
+  AppsRecentModel(title: "Activation",text: "There are numerous CRM tools available now",img: Image.asset(ImageAsset.WORKSPACE,fit: BoxFit.fill,)),
 
 ];
 class WorkSpaceModel{
