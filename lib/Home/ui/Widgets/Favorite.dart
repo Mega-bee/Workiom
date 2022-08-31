@@ -14,6 +14,14 @@ class Favorite extends StatelessWidget {
             .of(context)
             .size
             .height * 0.05,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+
+          border: Border(
+            bottom: BorderSide(width:0.5,color: Color(0xFFD6D6D6),
+            ),
+          ),
+        ),
         child: Row(
           children: [
             Icon(favoriteModel.favIcon,color:Color(0xFF555555) ),

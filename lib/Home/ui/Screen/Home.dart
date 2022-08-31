@@ -156,7 +156,7 @@ class _HomeState extends State<Home> {
                 ),
                 SingleChildScrollView(
                   child: Container(
-                    height: MediaQuery.of(context).size.height*0.3,
+                    height: MediaQuery.of(context).size.height*0.35,
                       child:
                     TabBarView(
                       children: [
