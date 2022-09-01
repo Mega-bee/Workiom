@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:workiom/ChooseYourWorkSpace/ui/screens/choose_your_workspace_screen.dart';
 
+import '../../../SignUp/ui/screens/signup_step1.dart';
 import '../../../utils/images.dart';
 
 class WelcomeToTechDealScreen extends StatefulWidget {
@@ -11,16 +12,13 @@ class WelcomeToTechDealScreen extends StatefulWidget {
 
 class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
 
-  bool obscureText = false;
-
+  bool _isVisible = false;
+  bool isChecked = false;
   var selectedValue;
   final _formKey = GlobalKey<FormState>();
   bool btnActive = false;
   var emailController = TextEditingController();
 
-  void toggle() {
-    obscureText = !obscureText;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +29,43 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
           child: Center(
             child: Column(
               children: [
+                SafeArea(
+                  child: Container(
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: IconButton(
+                              icon: Icon(Icons.arrow_back_ios),
+                              onPressed: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ChooseYourWorkspaceScreen()),
+                                );
+                              },
+                            ),
+                          ),
+                          Text(
+                            'Workspaces',
+                            style: TextStyle(
+                              color: Colors.grey
+                            ),
+                          ),
+                        ],
+                      )
+                  ),
+                ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.10,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20),
                   child: Text(
-                    'Sign in',
+                    'Welcome to Tech-Deal',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 35,
+                      fontSize: 25,
                     ),
                   ),
                 ),
@@ -66,18 +91,6 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
                   child: TextFormField(
-                    validator: (value) {
-                      if(value == null || value.isEmpty) {
-                        return 'Email is required !';
-                      } else {
-                        return null;
-                      }
-                    },
-                    onChanged: (value){
-                      setState(() {
-                        btnActive = value.length == 1 ? true : false;
-                      });
-                    },
                     decoration: const InputDecoration(
                       icon: const Icon(Icons.email_outlined, color: Colors.black,),
                       hintText: 'Email Address',
@@ -98,7 +111,7 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
                   child: TextFormField(
-                    obscureText: true,
+                    obscureText: _isVisible,
                     validator: (value) {
                       if(value == null || value.isEmpty) {
                         return 'password is required !';
@@ -106,29 +119,45 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
                         return null;
                       }
                     },
-                    onChanged: (value){
-                      setState(() {
-                        btnActive = value.length == 1 ? true : false;
-                      });
-                    },
                     decoration: InputDecoration(
                       icon: const Icon(Icons.lock, color: Colors.black,),
                       hintText: 'Password',
                       suffixIcon: IconButton(
-                        icon: Icon(obscureText
-                            ? Icons.visibility_off
-                            : Icons.visibility
-                        ),
                         onPressed: (){
-                          toggle();
+                          setState(() {
+                            _isVisible = !_isVisible;
+                          });
                         },
+                        icon:_isVisible ? Icon(Icons.visibility_off_outlined, color: Colors.grey) : Icon(Icons.visibility_outlined, color: Colors.grey),
                       ),
                     ),
                   ),
                 ),
 
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Checkbox(
+                      value: isChecked,
+                      onChanged: (value) {
+                      setState(() {
+                      isChecked = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    Text(
+                      'Remember Me',
+                      style: TextStyle(
+                        color: Colors.grey
+                      ),
+                    ),
+                  ],
+                ),
+
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
+                  padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
                   child: Container(
                     height: 50,
                     child: RaisedButton(
@@ -210,8 +239,14 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
                         'Don\'t have an account yet?'
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpStep1()),
+                        );
+                      },
+                      child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent, decoration: TextDecoration.underline,),
                       ),
                     ),
                   ],

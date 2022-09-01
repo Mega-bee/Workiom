@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ChooseYourWorkSpace/ui/screens/choose_your_workspace_screen.dart';
 import 'SignIn/ui/signin_screen.dart';
+import 'SignUp/ui/screens/signup_step1.dart';
 import 'WelcomeToTechDeal/ui/screens/welcome_to_tech_deal_screen.dart';
 
 void main() {
