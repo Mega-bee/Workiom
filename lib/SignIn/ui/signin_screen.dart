@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:workiom/ChooseYourWorkSpace/ui/screens/choose_your_workspace_screen.dart';
+import 'package:workiom/SignUp/ui/screens/signup_step1.dart';
 import '../../utils/images.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -11,9 +12,9 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
 
   var selectedValue;
-
   final _formKey = GlobalKey<FormState>();
   bool btnActive = false;
+  bool _isVisible = false;
   var emailController = TextEditingController();
 
   @override
@@ -52,19 +53,15 @@ class _SignInScreenState extends State<SignInScreen> {
                     alignment: Alignment.topLeft,
                     child: Text(
                         'Your work email',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
                   child: TextFormField(
-                    validator: (value) {
-                      if(value == null || value.isEmpty) {
-                        return 'Email is required !';
-                      } else {
-                        return null;
-                      }
-                    },
                     onChanged: (value){
                       setState(() {
                         btnActive = value.length == 1 ? true : false;
@@ -171,8 +168,14 @@ class _SignInScreenState extends State<SignInScreen> {
                       'Don\'t have an account yet?'
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpStep1()),
+                        );
+                      },
+                      child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent, decoration: TextDecoration.underline,),
                       ),
                     ),
                   ],
