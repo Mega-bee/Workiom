@@ -3,6 +3,7 @@ import 'package:workiom/Get_started/ui/screens/screen2.dart';
 import 'package:workiom/Get_started/ui/screens/size.dart';
 
 import '../../../NavigationBar/ui/Screen/NavigationBar.dart';
+import '../../../SignIn/ui/signin_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
 
@@ -109,7 +110,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     padding: const EdgeInsets.all(30),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> NavigationBarr()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> SignInScreen()));
                       },
                       child: Text("Continue",style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(

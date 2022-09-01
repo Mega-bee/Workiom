@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:workiom/SignIn/ui/signin_screen.dart';
+import '../../../NavigationBar/ui/Screen/NavigationBar.dart';
 import '../../../SignUp/ui/screens/signup_step1.dart';
 import '../../../utils/images.dart';
 import '../../models/workiom_account_model.dart';
@@ -94,8 +95,17 @@ class _ChooseYourWorkspaceScreenState extends State<ChooseYourWorkspaceScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+
+              ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> NavigationBarr()));}, child:
+              Text("Continue"),style: ElevatedButton.styleFrom(
+                primary: Colors.blue
+
+              ),
+              ),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
