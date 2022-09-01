@@ -5,6 +5,7 @@ import '../../../Home/ui/Screen/Home.dart';
 import '../../../Inbox/ui/Screen/Inbox.dart';
 import '../../../Tasks/ui/Screen/Tasks.dart';
 import '../../../You/ui/Screen/You.dart';
+import '../../../dashboard_pie/ui/screen/pie_screen.dart';
 import '../../../utils/style/Colors.dart';
 class NavigationBarr extends StatefulWidget {
   const NavigationBarr({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _NavigationBarrState extends State<NavigationBarr> {
     Home(),
     Tasks(),
     Inbox(),
-    Dashboard(),
+    PieScreen(),
     You()
   ];
   @override

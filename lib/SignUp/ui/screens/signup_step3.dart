@@ -158,7 +158,7 @@ class _SignUpStep3 extends State<SignUpStep3> {
                   padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
                   child: Container(
                     height: 50,
-                    child: RaisedButton(
+                    child: MaterialButton(
                       onPressed: () {
                         if (_formKey.currentState?.validate() == true) {
                           print(emailController.text);
