@@ -13,3 +13,4 @@ Map<int, Color> color = const {
   900: Color.fromRGBO(4, 31, 206, 1.0),
 };
 MaterialColor PrimaryColor = MaterialColor(0xFF0A0652, color);
+MaterialColor disabledButtonGrey = MaterialColor(0xFFB5B5B5, color);

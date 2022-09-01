@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:workiom/SignIn/ui/signin_screen.dart';
-
+import '../../../SignUp/ui/screens/signup_step1.dart';
 import '../../../utils/images.dart';
 import '../../models/workiom_account_model.dart';
 import '../widgets/workiom_account_card.dart';
@@ -82,8 +82,14 @@ class _ChooseYourWorkspaceScreenState extends State<ChooseYourWorkspaceScreen> {
                       'Don\'t have an account yet?'
                   ),
                   TextButton(
-                    onPressed: () {},
-                    child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SignUpStep1()),
+                      );
+                    },
+                    child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent, decoration: TextDecoration.underline,),
                     ),
                   ),
                 ],
@@ -145,7 +151,7 @@ class _ChooseYourWorkspaceScreenState extends State<ChooseYourWorkspaceScreen> {
               ),
 
             ],
-          )
+          ),
       ),
     );
   }
