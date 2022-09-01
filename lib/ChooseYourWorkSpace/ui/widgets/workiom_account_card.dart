@@ -25,7 +25,7 @@ class WorkiomAccountCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image(
-                image: AssetImage('${workiomAccount?.image}'),
+                image: AssetImage('${workiomAccount.image}'),
                 width: MediaQuery.of(context).size.height * 0.05,
               ),
             ),
@@ -37,7 +37,7 @@ class WorkiomAccountCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 15),
                   child: Text(
-                    '${workiomAccount?.name}',
+                    '${workiomAccount.name}',
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontWeight: FontWeight.bold
@@ -47,7 +47,7 @@ class WorkiomAccountCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    '${workiomAccount?.email}',
+                    '${workiomAccount.email}',
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontWeight: FontWeight.w200,

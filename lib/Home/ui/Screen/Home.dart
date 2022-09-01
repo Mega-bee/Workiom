@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: PrimaryColor,
           automaticallyImplyLeading: false,
           title: Text("T-Technology"),
           titleTextStyle: TextStyle(
@@ -95,7 +96,14 @@ class _HomeState extends State<Home> {
                             ),
                             Spacer(),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  showModalBottomSheet<void>(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return FavBottomSheet();
+                                    },
+                                  );
+                                },
                                 child: Text(
                                   "View all",
                                   style: TextStyle(
