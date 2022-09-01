@@ -5,4 +5,5 @@ class ImageAsset{
   static const img2= ROOT+"Group 827221.png";
   static const img1 = ROOT+"Group 827239.png";
   static const WORKSPACE = ROOT +'WorkSpaceIcon.png';
+  static const PHOTO = ROOT +'Photo.png';
 }

@@ -18,9 +18,9 @@ class AppsRecent extends StatelessWidget {
                 width: MediaQuery.of(context).size.width*0.1,
                 child: appsRecentModel.img
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.transparent,
                 border: Border(
                   bottom: BorderSide(color: Color(0xFFD6D6D6),
@@ -38,6 +38,7 @@ class AppsRecent extends StatelessWidget {
                     appsRecentModel.text,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    softWrap: true,
                     style: TextStyle(
                         color: Color(0xFF747474), fontWeight: FontWeight.w400,fontSize: 14),
                   ),
