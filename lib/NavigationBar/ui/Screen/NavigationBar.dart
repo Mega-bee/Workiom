@@ -24,7 +24,9 @@ class _NavigationBarrState extends State<NavigationBarr> {
   ];
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       backgroundColor: Colors.white,
       body: screens[currentIndex],
 
