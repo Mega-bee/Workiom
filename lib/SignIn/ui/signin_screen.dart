@@ -77,7 +77,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
                   child: Container(
                     height: 50,
-                    child: RaisedButton(
+                    child: MaterialButton(
                       onPressed: () {
                         if (_formKey.currentState?.validate() == true) {
                         print(emailController.text);
@@ -131,7 +131,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   padding: const EdgeInsets.only(left: 15, right: 15, top: 25, bottom: 20),
                   child: Container(
                     height: 50,
-                    child: RaisedButton(
+                    child: MaterialButton(
                       elevation: 0,
                       onPressed: () {},
                       shape: RoundedRectangleBorder(
