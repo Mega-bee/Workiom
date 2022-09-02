@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-// import '../../abstracts/model/WebServiceResponse.dart';
-import '../../auth/response/activetenants_response.dart';
+ import '../../abstracts/model/WebServiceResponse.dart';
+//import '../../auth/response/activetenants_response.dart';
 import '../../utils/logger/logger.dart';
 
 @injectable
@@ -16,7 +16,7 @@ class ApiClient {
 
   ApiClient(this._logger);
 
-  Future<ActiveResponse?> get(
+  Future<WebServiceResponse?> get(
     String url, {
     Map<String, dynamic>? queryParams,
     Map<String, String>? headers,
@@ -70,7 +70,7 @@ class ApiClient {
     }
   }
 
-  Future<ActiveResponse?> post(
+  Future<WebServiceResponse?> post(
     String url,
     Map<String, dynamic> payLoad, {
     Map<String, String>? queryParams,
@@ -123,7 +123,7 @@ class ApiClient {
     return null;
   }
 
-  Future<ActiveResponse?> put(
+  Future<WebServiceResponse?> put(
     String url,
     Map<String, dynamic> payLoad, {
     Map<String, String>? queryParams,
@@ -175,7 +175,7 @@ class ApiClient {
     }
   }
 
-  Future<ActiveResponse?> delete(
+  Future<WebServiceResponse?> delete(
       String url,
       Map<String, dynamic> payLoad, {
         Map<String, String>? queryParams,
@@ -227,10 +227,10 @@ class ApiClient {
     }
   }
 
-  ActiveResponse? _processResponse(Response response) {
+  WebServiceResponse? _processResponse(Response response) {
     if (response.statusCode! < 500) {
       _logger.info(tag, response.data.toString());
-      return ActiveResponse.fromJson(response.data);
+      return WebServiceResponse.fromJson(response.data);
     } else {
       _logger.info(tag, response.data.toString());
       _logger.error(

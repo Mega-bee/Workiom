@@ -13,7 +13,7 @@ class WorkiomAccountCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(20.0),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,
         decoration: BoxDecoration(
@@ -26,10 +26,7 @@ class WorkiomAccountCard extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image(
-                image: NetworkImage('${result.logoUrl ?? "asset/images/WorkSpaceIcon.png"}'),
-                width: MediaQuery.of(context).size.height * 0.05,
-              ),
+              child:result.logoUrl != null ?  Image.network(result.logoUrl ?? '') :Image.asset('assets/images/WorkSpaceIcon.png')
             ),
             SizedBox(width: 5),
             Column(
