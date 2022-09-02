@@ -26,9 +26,15 @@ class WorkSpaceInitStates extends States{
      width: double.infinity,
      child: Column(
        children: [
+         SizedBox(height: 50,),
 
+         Row(children: [
+           IconButton(icon:Icon(Icons.arrow_back_ios_rounded),onPressed: (){Navigator.pop(context);}),
+           Text("Workspace")
+         ],),
+SizedBox(height: 20,),
          Padding(
-           padding: const EdgeInsets.only(bottom: 15),
+           padding: const EdgeInsets.only(bottom: 15,right: 130),
            child: Text(
              'Choose your workspace',
              style: TextStyle(
@@ -38,13 +44,28 @@ class WorkSpaceInitStates extends States{
            ),
          ),
 
-         Text(
-           'We\'ve found several accounts linked to \n user@workiom.com',
-           textAlign: TextAlign.center,
-           overflow: TextOverflow.ellipsis,
-           maxLines: 2,
-           style: TextStyle(
-               fontWeight: FontWeight.w300
+         Padding(
+           padding: const EdgeInsets.only(right: 120),
+           child: Text(
+             'We\'ve found several accounts linked to ',
+             textAlign: TextAlign.center,
+             overflow: TextOverflow.ellipsis,
+             maxLines: 2,
+             style: TextStyle(
+                 fontWeight: FontWeight.w300,fontSize: 17
+             ),
+           ),
+         ),
+         Padding(
+           padding: const EdgeInsets.only(right: 250),
+           child: Text(
+             'user@workiom.com ',
+             textAlign: TextAlign.center,
+             overflow: TextOverflow.ellipsis,
+             maxLines: 2,
+             style: TextStyle(
+                 fontWeight: FontWeight.w300,fontSize: 17
+             ),
            ),
          ),
 

@@ -46,21 +46,8 @@ widget.cubit.getActiveTenants(this, request!);
     }
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SignInScreen(),
-                ),
-              );
-            },
-            color: Colors.grey
-        ),
-      ),
+
+
 
       body: BlocBuilder<ActiveTenantsCubit, States>(
         bloc: widget.cubit,

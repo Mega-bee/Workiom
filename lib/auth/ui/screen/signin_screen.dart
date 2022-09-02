@@ -33,23 +33,30 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: MediaQuery.of(context).size.height * 0.10,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
+                  padding: const EdgeInsets.only(bottom: 20,left: 20),
+                  child: Row(
+                      children: [Text(
+                        'Welcome To Workiom',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
+                      ),
+                        Image.asset("assets/images/emojione_waving-hand-light-skin-tone.png")
+                      ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 130),
                   child: Text(
-                    'Sign in',
+                    'We are happy to see you here again ! \nEnter your email and password now',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.black,
+                      fontSize: 16
                     ),
                   ),
                 ),
-                Text(
-                  'We are happy to see you here again ! \nEnter your email and password now',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.10),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12, left: 15),
                   child: Container(

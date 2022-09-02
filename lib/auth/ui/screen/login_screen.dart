@@ -63,7 +63,7 @@ String? mod;
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Row(children: [
-                    Icon(Icons.arrow_back_ios_rounded),
+                    IconButton(icon:Icon(Icons.arrow_back_ios_rounded),onPressed: (){Navigator.pop(context);}),
                     Text("Workspace")
                   ],),
                   SizedBox(
