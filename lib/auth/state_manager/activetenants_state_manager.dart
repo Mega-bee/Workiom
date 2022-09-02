@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:injectable/injectable.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:workiom/auth/response/activetenants_response.dart';
 import 'package:workiom/auth/response/login_response.dart';
 
@@ -25,7 +26,8 @@ class ActiveTenantsCubit extends Cubit<States> {
   final AuthService _authService;
 
   ActiveTenantsCubit(this._authRepository, this._authService) : super(LoadingState());
-
+  final _loadingStateSubject = PublishSubject<AsyncSnapshot>();
+  Stream<AsyncSnapshot> get loadingStream => _loadingStateSubject.stream;
 
   getActiveTenants(ChooseYourWorkspaceScreenState screenState,GetActiveTenantsRequest request) {
 
@@ -48,13 +50,15 @@ class ActiveTenantsCubit extends Cubit<States> {
     });
   }
   login(LoginRequest request,LogInScreenState screenState) {
-    emit(LoadingState());
+    _loadingStateSubject.add(AsyncSnapshot.waiting());
     _authRepository.loginRequest(request).then((value) {
       if (value == null) {
+        _loadingStateSubject.add(AsyncSnapshot.nothing());
         Navigator.pop(screenState.context);
         Fluttertoast.showToast(msg: 'Connection error');
 //        emit(ErrorState(errorMessage: 'Connection error', retry: () {}));
       } else if (value.success == true) {
+        _loadingStateSubject.add(AsyncSnapshot.waiting());
         LoginResponse TT = LoginResponse.fromJson(value.result);
          _authService.setToken(TT.accessToken ??"",);
         // _authService.setToken(value.data.insideData ?? "");

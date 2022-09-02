@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:workiom/auth/auth_routes.dart';
 import 'package:workiom/auth/request/login_repository.dart';
 import 'package:workiom/auth/ui/screen/choose_your_workspace_screen.dart';
+import 'package:workiom/auth/ui/widget/custem_button.dart';
 
 import '../../../utils/Images/Images.dart';
 import '../../response/activetenants_response.dart';
@@ -13,7 +14,10 @@ import 'signup_step1.dart';
 @injectable
 class LogInScreen extends StatefulWidget {
   final ActiveTenantsCubit cubit;
+
   LogInScreen(this.cubit);
+
+
   @override
   State<LogInScreen> createState() => LogInScreenState();
 }
@@ -29,13 +33,23 @@ String? mod;
   bool isObscure=false;
   bool value=false;
   bool flags=true;
-
+late AsyncSnapshot loadingSnapshot;
   void LogInnnnn(LoginRequest request){
     widget.cubit.login(request, this);
   }
 
 
-
+@override
+void initState() {
+  super.initState();
+  loadingSnapshot = AsyncSnapshot.nothing();
+  widget.cubit.loadingStream.listen((event) {
+    if (this.mounted) {
+      setState(() {
+        loadingSnapshot = event;
+      });
+    }
+  });}
   @override
   Widget build(BuildContext context) {
     if (flags) {
@@ -189,41 +203,47 @@ String? mod;
                     padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
                     child: Container(
                       height: 50,
-                      child: MaterialButton(
-                        onPressed: () {
-                          if (_formKey.currentState?.validate() == true) {
-                            print(emailllController.text);
-                          } else {
-                            emailllController.text.isNotEmpty&&passController.text.isNotEmpty?
-                            LogInnnnn(LoginRequest(mod.toString(), passController.text, emailllController.text)):
+                      child:CustomButton(bgColor: Colors.blue, text: "Next", textColor: Colors.white,
+                          loading:loadingSnapshot.connectionState ==
+                              ConnectionState.waiting, buttonTab: (){
+                            if (_formKey.currentState?.validate() == true) {
+                              print(emailllController.text);
+                            } else {
+                              emailllController.text.isNotEmpty&&passController.text.isNotEmpty?
+                              LogInnnnn(LoginRequest(mod.toString(), passController.text, emailllController.text)):
 
-                            Fluttertoast.showToast(msg:"Please fill The Email Field");
+                              Fluttertoast.showToast(msg:"Please fill The Email Field");
 
-                            ;
-                          }
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        color: Colors.blueAccent,
-                        child: Center(
-                          child: Row(
-                            children: [
-                              Spacer(),
-                              Text(
-                                "Next",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              Spacer(),
-                              Icon(
-                                Icons.subdirectory_arrow_left,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                              ;
+                            }
+                          }),
+
+                      // child: MaterialButton(
+                      //   onPressed: () {
+                      //
+                      //   },
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(10),
+                      //   ),
+                      //   color: Colors.blueAccent,
+                      //   child: Center(
+                      //     child: Row(
+                      //       children: [
+                      //         Spacer(),
+                      //         Text(
+                      //           "Next",
+                      //           style: TextStyle(color: Colors.white),
+                      //         ),
+                      //         Spacer(),
+                      //         Icon(
+                      //           Icons.subdirectory_arrow_left,
+                      //           color: Colors.white,
+                      //           size: 20,
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                     ),
                   ),
                   SizedBox(
