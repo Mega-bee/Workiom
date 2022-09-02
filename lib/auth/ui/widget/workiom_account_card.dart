@@ -15,7 +15,7 @@ class WorkiomAccountCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(20.0),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,
         decoration: BoxDecoration(

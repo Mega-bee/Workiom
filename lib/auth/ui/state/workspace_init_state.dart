@@ -14,7 +14,7 @@ import '../widget/workiom_account_card.dart';
 
 class WorkSpaceInitStates extends States{
   final ChooseYourWorkspaceScreenState screenState;
-  final ActiveResponse activeResponse;
+  final List<Result> activeResponse;
   WorkSpaceInitStates(this.screenState,this.activeResponse);
 
   var selectedValue;
@@ -76,11 +76,11 @@ SizedBox(height: 20,),
            child: ListView.builder(itemBuilder: (context, index) {
              return InkWell(
                  onTap: (){
-                   Navigator.pushNamed(context, AuthRoutes.LOGIN_SCREEN,arguments: activeResponse.result![index].tenancyName,);
+                   Navigator.pushNamed(context, AuthRoutes.LOGIN_SCREEN,arguments:activeResponse[index].tenancyName,);
                  },
-                 child: WorkiomAccountCard(activeResponse.result![index]));
+                 child: WorkiomAccountCard(activeResponse[index]));
            },
-             itemCount: activeResponse.result!.length,
+             itemCount: activeResponse.length,
              shrinkWrap: true,
            ),
          ),
