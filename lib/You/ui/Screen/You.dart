@@ -4,6 +4,8 @@ import 'package:workiom/utils/Images/Images.dart';
 
 import '../../../Home/model/model_home.dart';
 import '../../../Home/ui/Widgets/workspace_widget.dart';
+import '../../../dashboard_pie/ui/screen/dashboard.dart';
+import '../../../dashboard_pie/ui/screen/pie_screen.dart';
 import '../Widgets/WorkSpaceWidgetProfile.dart';
 class You extends StatefulWidget {
   const You({Key? key}) : super(key: key);
@@ -18,10 +20,11 @@ class _YouState extends State<You> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(16, 35,10, 0),
+          padding: EdgeInsets.fromLTRB(16, 35,10, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 30,),
               Row(
                 children: [
                   Container(
@@ -42,6 +45,36 @@ class _YouState extends State<You> {
                 ],
               ),
               SizedBox(height: 30,),
+
+
+              InkWell(
+                // onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>PieScreen()));},
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    height: 90,width: 240,
+                    child: Card(
+                      borderOnForeground: true,
+
+                      elevation: 0,
+                      color: Colors.grey[200],
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                          Icon(Icons.pie_chart,color: Colors.blue,),
+                          Text("Dashboards")
+
+                        ],),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30,),
+                
+                
 
                 Container(
                   decoration: BoxDecoration(

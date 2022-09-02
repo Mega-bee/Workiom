@@ -17,10 +17,10 @@ class _AccountSettingsState extends State<AccountSettings> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: PrimaryColor,
-        title: Text("Account Settings",style: TextStyle(fontSize: 14),),
+        title: Text("Account Settings",style: TextStyle(fontSize: 14,color: Colors.black),),
         leading:
-            IconButton(icon:Icon(Icons.arrow_back_ios_new,size: 20,),
-              onPressed: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => You(),));}),
+            IconButton(icon:Icon(Icons.arrow_back_ios_new,size: 20,color: Colors.black,),
+              onPressed: (){Navigator.pop(context);}),
       ),
       backgroundColor: PrimaryColor,
       body: Padding(

@@ -20,7 +20,7 @@ class WorkSpaceWidgetProfile extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width * 0.15,
                   height: MediaQuery.of(context).size.height * 0.075,
-                  child: workSpaceModel.img),
+                  child: Image.asset("assets/images/Rectangle 77-2.png")),
               SizedBox(width: 20,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,

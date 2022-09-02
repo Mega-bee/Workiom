@@ -6,4 +6,7 @@ class ImageAsset{
   static const img1 = ROOT+"Group 827239.png";
   static const WORKSPACE = ROOT +'WorkSpaceIcon.png';
   static const PHOTO = ROOT +'Photo.png';
+  static const signinLogo = ROOT + 'signin_logo.png';
+  static const google = ROOT + 'google_logo.png';
+  static const apple = ROOT + 'Vector.png';
 }

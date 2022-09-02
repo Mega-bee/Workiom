@@ -9,14 +9,19 @@ class AppsRecent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      padding: const EdgeInsets.fromLTRB(2, 0, 10, 0),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.09,
         child: Row(
           children: [
             Container(
-                width: MediaQuery.of(context).size.width*0.1,
-                child: appsRecentModel.img
+                width: MediaQuery.of(context).size.width*0.14,
+                height: MediaQuery.of(context).size.height*0.065,
+
+
+                 child:  appsRecentModel.img,
+
+
             ),
             const SizedBox(width: 20,),
             Container(

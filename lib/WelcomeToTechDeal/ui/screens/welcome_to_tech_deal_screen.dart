@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:workiom/ChooseYourWorkSpace/ui/screens/choose_your_workspace_screen.dart';
+import 'package:workiom/auth/auth_routes.dart';
+import 'package:workiom/auth/ui/screen/choose_your_workspace_screen.dart';
 
-import '../../../SignUp/ui/screens/signup_step1.dart';
-import '../../../utils/images.dart';
+import '../../../auth/ui/screen/signup_step1.dart';
+import '../../../utils/Images/Images.dart';
 
 class WelcomeToTechDealScreen extends StatefulWidget {
   @override
@@ -38,11 +39,8 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
                             child: IconButton(
                               icon: Icon(Icons.arrow_back_ios),
                               onPressed: (){
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ChooseYourWorkspaceScreen()),
-                                );
+                                Navigator.pushNamed(context, AuthRoutes.WORKSPACE_SCREEN);
+
                               },
                             ),
                           ),
@@ -168,11 +166,7 @@ class _WelcomeToTechDealScreen extends State<WelcomeToTechDealScreen> {
                         if (_formKey.currentState?.validate() == true) {
                           print(emailController.text);
                         } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ChooseYourWorkspaceScreen()),
-                          );
+                         Navigator.pushNamed(context, AuthRoutes.WORKSPACE_SCREEN);
                         }
                       },
                       shape: RoundedRectangleBorder(

@@ -131,17 +131,24 @@ class _TasksState extends State<Tasks> {
                           Row(
                             children: [
                               Checkbox(
-                                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))), // Rounded Checkbox
-                                  value: checkedValue,
+                      activeColor:Colors.grey,
+                                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)),), // Rounded Checkbox
+                                  value: true,
                                   onChanged: (newValue){}),
-                              Text("Add Task",style: TextStyle(color: Color(0xFFB5B5B5)),),
+                              Column(
+                                children: [
+                                  Text("Design Native Task Management ",style: TextStyle(color: Colors.black),),
+                                  Text("(New feature in Workiom) Similar ",style: TextStyle(color: Colors.black),),
+                                  Text("to Asana, Clickup                         ",style: TextStyle(color: Colors.black),),
+                                ],
+                              ),
                             ],
                           ),
                           Divider(),
                           Row(
                             children: [
                               Container(
-                                height: 30,
+                                height: 30,width: 120,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(50),
@@ -149,17 +156,20 @@ class _TasksState extends State<Tasks> {
                                   color: Color(0xFFC6D9FF),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.lock,color: Color(0xFF0F47B8),size: 15),
-                                      Text("Personal task",style: TextStyle(color:Color(0xFF0F47B8),fontSize: 12),),
-                                    ],
+                                  padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+                                  child: Center(
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.lock,color: Color(0xFF0F47B8),size: 15),
+                                        Text("Personal task",style: TextStyle(color:Color(0xFF0F47B8),fontSize: 12),),
+
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                               Spacer(),
-                              Icon(Icons.date_range,color: Color(0xFFD6D6D6)),
+                              Text("Today ,5:00 PM",style: TextStyle(color:Colors.grey,fontSize: 12),),
                             ],
                           )
                         ],
@@ -181,17 +191,24 @@ class _TasksState extends State<Tasks> {
                           Row(
                             children: [
                               Checkbox(
-                                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))), // Rounded Checkbox
-                                  value: checkedValue,
+                                  activeColor:Colors.grey,
+                                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)),), // Rounded Checkbox
+                                  value: true,
                                   onChanged: (newValue){}),
-                              Text("Add Task",style: TextStyle(color: Color(0xFFB5B5B5)),),
+                              Column(
+                                children: [
+                                  Text("Design Native Task Management ",style: TextStyle(color: Colors.black),),
+                                  Text("(New feature in Workiom) Similar ",style: TextStyle(color: Colors.black),),
+                                  Text("to Asana, Clickup                         ",style: TextStyle(color: Colors.black),),
+                                ],
+                              ),
                             ],
                           ),
                           Divider(),
                           Row(
                             children: [
                               Container(
-                                height: 30,
+                                height: 30,width: 120,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(50),
@@ -199,17 +216,20 @@ class _TasksState extends State<Tasks> {
                                   color: Color(0xFFC6D9FF),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.lock,color: Color(0xFF0F47B8),size: 15),
-                                      Text("Personal task",style: TextStyle(color:Color(0xFF0F47B8),fontSize: 12),),
-                                    ],
+                                  padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+                                  child: Center(
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.lock,color: Color(0xFF0F47B8),size: 15),
+                                        Text("Personal task",style: TextStyle(color:Color(0xFF0F47B8),fontSize: 12),),
+
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                               Spacer(),
-                              Icon(Icons.date_range,color: Color(0xFFD6D6D6)),
+                              Text("Today ,5:00 PM",style: TextStyle(color:Colors.grey,fontSize: 12),),
                             ],
                           )
                         ],
@@ -217,6 +237,67 @@ class _TasksState extends State<Tasks> {
                     )
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child:
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                  activeColor:Colors.grey,
+                                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)),), // Rounded Checkbox
+                                  value: true,
+                                  onChanged: (newValue){}),
+                              Column(
+                                children: [
+                                  Text("Design Native Task Management ",style: TextStyle(color: Colors.black),),
+                                  Text("(New feature in Workiom) Similar ",style: TextStyle(color: Colors.black),),
+                                  Text("to Asana, Clickup                         ",style: TextStyle(color: Colors.black),),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Divider(),
+                          Row(
+                            children: [
+                              Container(
+                                height: 30,width: 120,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(50),
+                                  ),
+                                  color: Color(0xFFC6D9FF),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+                                  child: Center(
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.lock,color: Color(0xFF0F47B8),size: 15),
+                                        Text("Personal task",style: TextStyle(color:Color(0xFF0F47B8),fontSize: 12),),
+
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Spacer(),
+                              Text("Today ,5:00 PM",style: TextStyle(color:Colors.grey,fontSize: 12),),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                ),
+              ),
+
             ])));
   }
 }

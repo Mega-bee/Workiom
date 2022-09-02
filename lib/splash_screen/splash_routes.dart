@@ -1,0 +1,7 @@
+class SplashRoutes {
+  static const SPLASH_SCREEN = '/splashscreenn';
+
+
+
+
+}

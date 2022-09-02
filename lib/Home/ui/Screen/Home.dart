@@ -151,6 +151,7 @@ class _HomeState extends State<Home> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: TabBar(
+                                labelColor: Colors.black,
                                 indicator: UnderlineTabIndicator(
                                   borderSide: BorderSide(
                                       width: 4.0, color: Color(0xFF4E86F7)),

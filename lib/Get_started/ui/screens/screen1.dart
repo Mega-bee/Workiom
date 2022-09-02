@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workiom/Get_started/ui/screens/screen2.dart';
 import 'package:workiom/Get_started/ui/screens/size.dart';
-
-import '../../../NavigationBar/ui/Screen/NavigationBar.dart';
-import '../../../SignIn/ui/signin_screen.dart';
+import '../../../auth/ui/screen/signin_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
 

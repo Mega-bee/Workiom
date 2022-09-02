@@ -41,33 +41,37 @@ class _InboxState extends State<Inbox> {
     length: 3,
     child:Column(
         children:  [
-          Row(
-            children:  [
-               Align(
-                alignment: Alignment.centerLeft,
-                child: TabBar(
-                  indicator: BoxDecoration(
-                      color: Color(0xFFF4F4F4), borderRadius: BorderRadius.circular(20)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children:  [
+                 Align(
+                  alignment: Alignment.centerLeft,
+                  child: TabBar(
+                    labelColor: Colors.black,
+                    indicator: BoxDecoration(
+                        color: Color(0xFFF4F4F4), borderRadius: BorderRadius.circular(20)
+                    ),
+                    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400,color: Colors.red),
+                    labelStyle: TextStyle(fontWeight: FontWeight.w500,color: Colors.blue),
+                    isScrollable: true,
+                    tabs: const [
+                      Tab(text: "New",),
+                      Tab(
+                        text: "All",
+                      ),
+                      Tab(
+                        text: "Archived",
+                      ),
+                    ],
                   ),
-                  unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
-                  labelStyle: TextStyle(fontWeight: FontWeight.w500),
-                  isScrollable: true,
-                  tabs: const [
-                    Tab(text: "New"),
-                    Tab(
-                      text: "All",
-                    ),
-                    Tab(
-                      text: "Archived",
-                    ),
-                  ],
                 ),
-              ),
-              Spacer(),
-              TextButton(
-                  onPressed: (){},
-                  child: Text("Archive all",style: TextStyle(decoration: TextDecoration.underline,color: Color(0xFF4E86F7),fontSize: 14),))
-            ],
+                Spacer(),
+                TextButton(
+                    onPressed: (){},
+                    child: Text("Archive all",style: TextStyle(decoration: TextDecoration.underline,color: Color(0xFF4E86F7),fontSize: 14),))
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
