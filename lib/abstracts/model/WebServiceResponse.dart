@@ -1,27 +1,17 @@
 class WebServiceResponse {
-  int _code;
-  String _errorMessage;
-  Data _data;
-  WebServiceResponse(this._code, this._errorMessage, this._data);
+  dynamic  result;
+  dynamic  error;
+  bool? success;
+
+  WebServiceResponse(this.success, this.result, this.error);
   factory WebServiceResponse.fromJson(Map<String, dynamic> item) {
     return WebServiceResponse(
-      item['statusCode'],
-      item['errorMessage'],
-      ///first data
-      Data.fromJson(item['data'])  ,
+      item['success'],
+      item['result'],
+      item['error'],
     );
   }
-  get data => _data;
-  String get errorMessage => _errorMessage;
-  int get code => _code;
-}
-class Data {
- dynamic insideData;
- Data(
-      { this.insideData,
-      });
-  ///inside data
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-    insideData: json["data"],
-  );
+  get data => success;
+  String get errorMessage => error;
+  int get code => result;
 }

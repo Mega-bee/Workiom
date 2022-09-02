@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:injectable/injectable.dart';
+import 'package:workiom/auth/response/activetenants_response.dart';
+import 'package:workiom/auth/response/login_response.dart';
 
 import '../../NavigationBar/ui/Screen/NavigationBar.dart';
 import '../../abstracts/states/error_state.dart';
@@ -36,8 +38,11 @@ class ActiveTenantsCubit extends Cubit<States> {
               getActiveTenants(screenState,request);
             }));
       } else if (value.success == true) {
-
-        emit(WorkSpaceInitStates(screenState,value));
+        List<Result> res = [];
+        for (var item in value.result) {
+          res.add(Result.fromJson(item));
+        }
+        emit(WorkSpaceInitStates(screenState,res));
       }
 
     });
@@ -50,8 +55,8 @@ class ActiveTenantsCubit extends Cubit<States> {
         Fluttertoast.showToast(msg: 'Connection error');
 //        emit(ErrorState(errorMessage: 'Connection error', retry: () {}));
       } else if (value.success == true) {
-        // logInModel TT = logInModel.fromJson(value.result);
-        // _authService.setToken(TT.token ??"",);
+        LoginResponse TT = LoginResponse.fromJson(value.result);
+         _authService.setToken(TT.accessToken ??"",);
         // _authService.setToken(value.data.insideData ?? "");
     Navigator.push(screenState.context, MaterialPageRoute(builder: (context)=>NavigationBarr()));
       }
