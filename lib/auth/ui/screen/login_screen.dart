@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 import 'package:workiom/auth/auth_routes.dart';
 import 'package:workiom/auth/request/login_repository.dart';
@@ -83,26 +85,37 @@ void initState() {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 20,left: 10),
-                    child: Row(
-                      children: [Text(
-                        'Welcome To Workiom',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                    padding: EdgeInsets.all(12.0),
+                      child: Row(
+                        children: [Text(
+                          'Welcome To Workiom',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
                         ),
-                      ),
-                        Image.asset("assets/images/emojione_waving-hand-light-skin-tone.png")
-                    ]),
+                          Image.asset("assets/images/emojione_waving-hand-light-skin-tone.png")
+                      ]),
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 180),
-                    child: Text(
-                      'Enter your email and password now',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        color: Colors.black,
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        'Enter your email and password now',
+                        style:GoogleFonts.rubik(
+                            fontWeight: FontWeight.w300,
+
+
+                            color: Colors.black,
+                            fontSize: 16
+                        ),
                       ),
                     ),
                   ),
@@ -113,8 +126,9 @@ void initState() {
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Your work email',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400
+                        style:GoogleFonts.rubik(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14
                         ),
                       ),
                     ),
@@ -123,6 +137,13 @@ void initState() {
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: TextFormField(
                       controller: emailllController,
+                      validator: MultiValidator([
+                        RequiredValidator(errorText: 'Email Required *'),
+                        EmailValidator(errorText: 'Not a valid email'),
+                      ]),
+                      autovalidateMode:
+                      AutovalidateMode.onUserInteraction,
+                      keyboardType: TextInputType.emailAddress,
                       onChanged: (value){
                         setState(() {
                           btnActive = value.length == 1 ? true : false;
@@ -143,8 +164,9 @@ void initState() {
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Your password',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400
+                        style: GoogleFonts.rubik(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14
                         ),
                       ),
                     ),
@@ -154,6 +176,13 @@ void initState() {
                     child: TextFormField(
                       obscureText: isObscure,
                       controller: passController,
+                      validator: MultiValidator([
+                        RequiredValidator(errorText: 'Password Required *'),
+
+                      ]),
+                      autovalidateMode:
+                      AutovalidateMode.onUserInteraction,
+                      keyboardType: TextInputType.emailAddress,
                       onChanged: (value){
                         setState(() {
                           btnActive = value.length == 1 ? true : false;
@@ -193,7 +222,7 @@ void initState() {
                           });
                         }),
                       ),
-                      Text("Remember me")
+                      Text("Remember me",style: TextStyle(color: Colors.grey[700]),)
 
                     ],
                   ),
@@ -203,7 +232,13 @@ void initState() {
                     padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
                     child: Container(
                       height: 50,
-                      child:CustomButton(bgColor: Colors.blue, text: "Next", textColor: Colors.white,
+                      child:CustomButton(
+coloricon: emailllController.text.isEmpty?Colors.white24:Colors.blueAccent,
+// emailllController.text.isEmpty?
+// Colors.blueAccent[100]:Colors.grey[300],
+                          bgColor:
+                          emailllController.text.isEmpty?Colors.black26:
+                          Colors.blue, text: "Next", textColor: Colors.white,
                           loading:loadingSnapshot.connectionState ==
                               ConnectionState.waiting, buttonTab: (){
                             if (_formKey.currentState?.validate() == true) {
@@ -253,16 +288,14 @@ void initState() {
                     children: [
                       Text(
                         'Don\'t have an account yet? ',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14
+                        style: GoogleFonts.rubik(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14
                         ),
                       ),  Text(
                         'Sign Up',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 15,decoration: TextDecoration.underline
-                        ),
+                        style: GoogleFonts.rubik(fontWeight: FontWeight.w500,fontSize: 15,
+                          color: Colors.blueAccent, decoration: TextDecoration.underline,),
                       ),
                     ],
                   ),
@@ -279,14 +312,24 @@ void initState() {
                       Spacer(),
                       Text(
                         'Stay organized with ',
-                        style: TextStyle(
-                          color: Colors.black
+                        style: GoogleFonts.rubik(
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey[700],
+                            fontSize: 14
                         ),
                       ),
                       Image(
-                        image: AssetImage(ImageAsset.signinLogo,),
-                        width: 100,
-                        height: 40,
+                        image: AssetImage(ImageAsset.LOGO),
+                        width: 40,
+                        height: 30,
+                      ),
+                      Text(
+                        'workiom',
+                        style: GoogleFonts.rubik(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[900],
+                            fontSize: 14
+                        ),
                       ),
                       Spacer(),
                     ],
@@ -307,7 +350,8 @@ void initState() {
                         child: Icon(Icons.language),
                       ),
                       DropdownButton(
-                          hint: Text('English'),
+                          hint: Text('English',style: GoogleFonts.rubik(
+                            fontSize: 12,fontWeight: FontWeight.w300,color: Colors.black,),),
                           elevation: 0,
                           value: selectedValue,
                           items: [
@@ -328,6 +372,7 @@ void initState() {
                       Spacer()
                     ],
                   ),
+                  SizedBox(height: 25,),
 
 
 

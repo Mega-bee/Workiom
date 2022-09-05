@@ -46,6 +46,8 @@ dependencies:
   dio: ^4.0.0
   loading_animation_widget:
   fluttertoast:
+  form_field_validator:
+  google_fonts:
 
 
 

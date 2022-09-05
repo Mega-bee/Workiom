@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class CustomButton extends StatelessWidget {
@@ -8,11 +9,16 @@ class CustomButton extends StatelessWidget {
     required this.textColor,
     required this.loading,
     required this.buttonTab,
+    required this.coloricon,
+
+
   });
 
   final Color bgColor;
   final Color textColor;
+  final Color coloricon;
   final String text;
+
   final bool loading;
   final VoidCallback buttonTab;
   @override
@@ -22,7 +28,7 @@ class CustomButton extends StatelessWidget {
         Expanded(
           child: Material(
             color: bgColor,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(12),
             child: InkWell(
               borderRadius: BorderRadius.circular(15),
               onTap: (){
@@ -31,27 +37,62 @@ class CustomButton extends StatelessWidget {
               child: Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: SizedBox(
-                    height: 20,
+                    height: 30,
 
                     child: loading
-                        ? Center(
-                        child: LoadingIndicator(
+                        ? Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            LoadingIndicator(
 
-                          indicatorType:
-                          Indicator.ballBeat,
+                              indicatorType:
+                              Indicator.circleStrokeSpin,
 
-                          colors: [Colors.black],
-                        ))
-                        : Center(
-                      child: Text(
-                        '$text',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: textColor,
-                            fontSize: 18),
+                              colors: [Colors.white],
+                            ),
+                            Text(
+                              '$text',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: textColor,
+                                  fontSize: 18),
+                            ),
+                            Icon( Icons.subdirectory_arrow_left, color: Colors.white,
+                              size: 20,
+
+                            )
+                          ],
+                        )
+                        : Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Spacer(
+
+                            ),
+                            Text(
+                              '$text',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.rubik(
+                                  fontWeight: FontWeight.w600,
+                                  color: textColor,
+                                  fontSize: 14),
+                            ),
+                            Spacer(
+
+                            ),
+                    Container(
+
+height: 25,width: 35,
+                      child: Card(color: coloricon,
+                     elevation: 0,
+
+                        child: Center(
+                          child: Icon( Icons.subdirectory_arrow_left_sharp, color: Colors.white70,
+                            size: 12,),
+                        ),
                       ),
-                    ),
+                    )
+                          ],
+                        ),
                   )),
             ),
           ),

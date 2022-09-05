@@ -19,14 +19,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
-          Radius.circular(50),
+          Radius.circular(10),
         ),
-        color: const Color(0xFF000000),
+        color: _currentPage ==index ? Color(0xFF000000):Colors.grey,
+
       ),
       margin: const EdgeInsets.only(right: 5),
       height: 10,
-      curve: Curves.easeInCirc,
-      width: _currentPage == index ? 20 : 10,
+
+      curve: Curves.decelerate,
+      width: _currentPage == index ? 10 : 10,
     );
   }
 
@@ -58,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           Image.asset(
                             contents[i].image,
-                            height: SizeConfig.blockV! * 42,
+                            height: SizeConfig.blockV! * 36,
                           ),
                           SizedBox(
                             height: (height >= 840) ? 60 : 30,

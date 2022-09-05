@@ -138,5 +138,7 @@ class _MyAppState extends State<MyApp> {
 //      lang = event;
 //      setState(() {});
 //    });
+
   }
 }
+enum LegendShape { circle, rectangle }

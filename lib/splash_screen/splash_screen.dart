@@ -23,7 +23,7 @@ class SplashScreenState extends State<SplashScreen>
       print("Splash delay");
       Future.delayed(Duration(seconds: 2));
       Timer(Duration(milliseconds: 1500), () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>OnboardingScreen()));
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>OnboardingScreen()),(route) => false,);
       });
     });
   }

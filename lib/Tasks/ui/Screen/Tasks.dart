@@ -18,12 +18,14 @@ class _TasksState extends State<Tasks> {
     bool? checkedValue = false;
     return Scaffold(
         appBar: AppBar(
+          centerTitle: false,
           backgroundColor: PrimaryColor,
           automaticallyImplyLeading: false,
           title: Text("My Tasks"),
           titleTextStyle: TextStyle(
+
               fontWeight: FontWeight.w500,
-              fontSize: 32,
+              fontSize: 30,
               color: Color(0xFF0E0F12)),
           elevation: 0,
           actions: [

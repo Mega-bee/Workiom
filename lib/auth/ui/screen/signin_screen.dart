@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:workiom/auth/auth_routes.dart';
 import 'package:workiom/auth/ui/screen/choose_your_workspace_screen.dart';
 
@@ -20,6 +22,8 @@ class _SignInScreenState extends State<SignInScreen> {
   bool _isVisible = false;
   var emailController = TextEditingController();
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,27 +36,37 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20,left: 20),
-                  child: Row(
-                      children: [Text(
-                        'Welcome To Workiom',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(
+                        children: [Text(
+                          'Welcome To Workiom',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
                         ),
-                      ),
-                        Image.asset("assets/images/emojione_waving-hand-light-skin-tone.png")
-                      ]),
+                          SizedBox(width: 7,),
+                          Image.asset("assets/images/emojione_waving-hand-light-skin-tone.png")
+                        ]),
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 130),
-                  child: Text(
-                    'We are happy to see you here again ! \nEnter your email and password now',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      fontSize: 16
+
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding:  EdgeInsets.all(13.0),
+                    child: Text(
+                      'We happy to see you here again! \n Enter your email and password now',
+                      style: GoogleFonts.rubik(
+                        fontWeight: FontWeight.w300,
+
+
+                        color: Colors.black,
+                        fontSize: 16
+                      ),
                     ),
                   ),
                 ),
@@ -63,8 +77,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     alignment: Alignment.topLeft,
                     child: Text(
                         'Your work email',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400
+                      style: GoogleFonts.rubik(
+                        fontWeight: FontWeight.w400,
+                    fontSize: 14
                       ),
                     ),
                   ),
@@ -72,15 +87,28 @@ class _SignInScreenState extends State<SignInScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
                   child: TextFormField(
+
+
                     controller: emailController,
                     onChanged: (value){
                       setState(() {
                         btnActive = value.length == 1 ? true : false;
                       });
                     },
+
+                      validator: MultiValidator([
+                        RequiredValidator(errorText: 'Email Required *'),
+                        EmailValidator(errorText: 'Not a valid email'),
+                      ]),
+                      autovalidateMode:
+                      AutovalidateMode.onUserInteraction,
+                      keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
                     icon: const Icon(Icons.email_outlined, color: Colors.black,),
-                    hintText: 'Email address',
+                    hintText: 'Email address*',
+
+
+
                     ),
                   ),
                 ),
@@ -93,7 +121,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         if (_formKey.currentState?.validate() == true) {
                         print(emailController.text);
                         } else {
-                          emailController.text.isNotEmpty?
+                          emailController.text.isNotEmpty ?
                        Navigator.pushNamed(context, AuthRoutes.WORKSPACE_SCREEN,arguments: emailController.text):
                           Fluttertoast.showToast(msg:"Please fill The Email Field");
 
@@ -103,7 +131,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      color: Colors.blueAccent,
+                      color:
+                      emailController.text.isNotEmpty?
+                      Colors.blueAccent:Colors.grey,
                       child: Center(
                         child: Row(
                           children: [
@@ -129,9 +159,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 Text(
                   'Or',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12
+                  style: GoogleFonts.rubik(
+                    color: Colors.grey[600],
+                    fontSize: 14
                   ),
                 ),
                 SizedBox(
@@ -176,7 +206,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Don\'t have an account yet?'
+                      'Don\'t have an account yet?',style: GoogleFonts.rubik(fontWeight: FontWeight.w400,fontSize: 14),
                     ),
                     TextButton(
                       onPressed: () {
@@ -186,7 +216,8 @@ class _SignInScreenState extends State<SignInScreen> {
                               builder: (context) => SignUpStep1()),
                         );
                       },
-                      child: Text('Sign Up', style: TextStyle(color: Colors.blueAccent, decoration: TextDecoration.underline,),
+                      child: Text('Sign Up', style: GoogleFonts.rubik(fontWeight: FontWeight.w500,fontSize: 15,
+                          color: Colors.blueAccent, decoration: TextDecoration.underline,),
                       ),
                     ),
                   ],
@@ -203,14 +234,24 @@ class _SignInScreenState extends State<SignInScreen> {
                     Spacer(),
                     Text(
                       'Stay organized with ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
+                      style: GoogleFonts.rubik(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey[700],
+                        fontSize: 14
                       ),
                     ),
                     Image(
-                      image: AssetImage(ImageAsset.signinLogo),
-                      width: 100,
-                      height: 40,
+                      image: AssetImage(ImageAsset.LOGO),
+                      width: 40,
+                      height: 30,
+                    ),
+                    Text(
+                      'workiom',
+                      style: GoogleFonts.rubik(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[900],
+                          fontSize: 14
+                      ),
                     ),
                     Spacer(),
                   ],
@@ -224,18 +265,26 @@ class _SignInScreenState extends State<SignInScreen> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
+
                   children: [
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Icon(Icons.language),
+                      child: Icon(Icons.language,size: 17,),
                     ),
                     DropdownButton(
-                        hint: Text('English'),
+
+
+                        hint: Text(' English',style:GoogleFonts.rubik(
+                            fontSize: 12,fontWeight: FontWeight.w300,color: Colors.black
+                        ),),
                       elevation: 0,
+
+
                         value: selectedValue,
                         items: [
                           DropdownMenuItem(
+
                             child: Text("English"),
                             value: 1,
                           ),

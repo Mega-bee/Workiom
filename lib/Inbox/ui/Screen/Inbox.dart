@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:workiom/Inbox/ui/Widgets/InboxWidget.dart';
 
 import '../../../Home/ui/Widgets/workspace_bottomsheet.dart';
@@ -17,12 +18,14 @@ class _InboxState extends State<Inbox> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         backgroundColor: PrimaryColor,
         automaticallyImplyLeading: false,
         title: Text("Inbox"),
-        titleTextStyle: TextStyle(
+        titleTextStyle: GoogleFonts.rubik(
+
             fontWeight: FontWeight.w500,
-            fontSize: 32,
+            fontSize: 30,
             color: Color(0xFF0E0F12)),
         elevation: 0,
         actions: [

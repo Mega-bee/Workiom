@@ -21,7 +21,7 @@ class _NavigationBarrState extends State<NavigationBarr> {
     Home(),
     Tasks(),
     Inbox(),
-    // DashBoard(),
+    DashBoard(),
     You()
   ];
   @override

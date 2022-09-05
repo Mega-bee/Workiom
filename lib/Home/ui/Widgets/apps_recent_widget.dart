@@ -12,10 +12,11 @@ class AppsRecent extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(2, 0, 10, 0),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.09,
+
         child: Row(
           children: [
             Container(
-                width: MediaQuery.of(context).size.width*0.14,
+                width: MediaQuery.of(context).size.width*0.10,
                 height: MediaQuery.of(context).size.height*0.065,
 
 
@@ -45,7 +46,7 @@ class AppsRecent extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,
                     style: TextStyle(
-                        color: Color(0xFF747474), fontWeight: FontWeight.w400,fontSize: 14),
+                        color: Color(0xFF747474), fontWeight: FontWeight.w400,fontSize: 12),
                   ),
                   Spacer()
                 ],

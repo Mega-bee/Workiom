@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:workiom/auth/auth_routes.dart';
 
 import '../../../ChooseYourWorkSpace/models/workiom_account_model.dart';
@@ -34,40 +35,53 @@ class WorkSpaceInitStates extends States{
          ],),
 SizedBox(height: 20,),
          Padding(
-           padding: const EdgeInsets.only(bottom: 15,right: 130),
-           child: Text(
-             'Choose your workspace',
-             style: TextStyle(
+           padding: const EdgeInsets.all(12.0),
+           child: Align(
+             alignment: Alignment.centerLeft,
+             child: Text(
+               'Choose your workspace',
+               style:TextStyle(
+                 fontWeight: FontWeight.bold,
                  fontSize: 25,
-                 fontWeight: FontWeight.bold
+               ),
              ),
            ),
          ),
 
-         Padding(
-           padding: const EdgeInsets.only(right: 120),
-           child: Text(
-             'We\'ve found several accounts linked to ',
-             textAlign: TextAlign.center,
-             overflow: TextOverflow.ellipsis,
-             maxLines: 2,
-             style: TextStyle(
-                 fontWeight: FontWeight.w300,fontSize: 17
+
+         Align(
+           alignment: Alignment.centerLeft,
+           child: Padding(
+             padding: const EdgeInsets.all(12.0),
+             child: Text(
+               'We\'ve found several accounts linked to \n'
+                   'user@workiom.com',
+
+               overflow: TextOverflow.ellipsis,
+               maxLines: 2,
+               style: GoogleFonts.rubik(
+
+                   fontWeight: FontWeight.w300,fontSize: 16
+               ),
              ),
            ),
          ),
-         Padding(
-           padding: const EdgeInsets.only(right: 250),
-           child: Text(
-             'user@workiom.com ',
-             textAlign: TextAlign.center,
-             overflow: TextOverflow.ellipsis,
-             maxLines: 2,
-             style: TextStyle(
-                 fontWeight: FontWeight.w300,fontSize: 17
-             ),
-           ),
-         ),
+
+         // Align(
+         //   alignment: Alignment.centerLeft,
+         //   child: Padding(
+         //     padding: const EdgeInsets.all(12.0),
+         //     child: Text(
+         //       '',
+         //       textAlign: TextAlign.center,
+         //       overflow: TextOverflow.ellipsis,
+         //       maxLines: 1,
+         //       style: TextStyle(
+         //           fontWeight: FontWeight.w300,fontSize: 17
+         //       ),
+         //     ),
+         //   ),
+         // ),
 
 
 
@@ -90,7 +104,9 @@ SizedBox(height: 20,),
            mainAxisAlignment: MainAxisAlignment.center,
            children: [
              Text(
-                 'Don\'t have an account yet?'
+                 'Don\'t have an account yet?',style: GoogleFonts.rubik(
+               fontWeight: FontWeight.w400,fontSize: 14
+             ),
              ),
              TextButton(
                onPressed: () {
@@ -118,15 +134,25 @@ SizedBox(height: 20,),
            children: [
              Spacer(),
              Text(
-               'Stay organized with',
-               style: TextStyle(
-                 fontWeight: FontWeight.w300,
+               'Stay organized with ',
+               style: GoogleFonts.rubik(
+                   fontWeight: FontWeight.w400,
+                   color: Colors.grey[700],
+                   fontSize: 14
                ),
              ),
              Image(
-               image: AssetImage(ImageAsset.signinLogo),
-               width: 100,
-               height: 40,
+               image: AssetImage(ImageAsset.LOGO),
+               width: 40,
+               height: 30,
+             ),
+             Text(
+               'workiom',
+               style: GoogleFonts.rubik(
+                   fontWeight: FontWeight.w500,
+                   color: Colors.grey[900],
+                   fontSize: 14
+               ),
              ),
              Spacer(),
            ],
@@ -142,7 +168,9 @@ SizedBox(height: 20,),
                child: Icon(Icons.language),
              ),
              DropdownButton(
-                 hint: Text('English'),
+                 hint: Text(' English',style:GoogleFonts.rubik(
+                     fontSize: 12,fontWeight: FontWeight.w300,color: Colors.black
+                 ),),
                  elevation: 0,
                  value: selectedValue,
                  items: [

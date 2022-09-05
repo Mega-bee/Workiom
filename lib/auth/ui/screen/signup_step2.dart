@@ -250,11 +250,11 @@ class _SignUpStep2State extends State<SignUpStep2> {
                     ),
                     TextButton(
                       onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignInScreen()),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => SignInScreen()),
+                        // );
                       },
                       child: Text(
                         'Sign in',

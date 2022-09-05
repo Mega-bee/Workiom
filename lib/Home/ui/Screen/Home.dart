@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:workiom/Home/model/model_home.dart';
 import 'package:workiom/Home/ui/Widgets/Favorite.dart';
 import 'package:workiom/Home/ui/Widgets/apps_widget.dart';
@@ -24,8 +25,11 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           backgroundColor: PrimaryColor,
           automaticallyImplyLeading: false,
+          centerTitle: false,
           title: Text("T-Technology"),
-          titleTextStyle: TextStyle(
+
+          titleTextStyle: GoogleFonts.rubik(
+
               fontWeight: FontWeight.w500,
               fontSize: 32,
               color: Color(0xFF0E0F12)),
@@ -42,7 +46,7 @@ class _HomeState extends State<Home> {
                 icon: Image.asset(ImageAsset.WORKSPACE))
           ],
           bottom: PreferredSize(
-            preferredSize: Size(double.infinity, 60),
+            preferredSize: Size(double.infinity, 80),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
               child: TextField(
@@ -88,10 +92,10 @@ class _HomeState extends State<Home> {
                           children: [
                             Text(
                               "Favorite",
-                              style: TextStyle(
+                              style: GoogleFonts.rubik(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,
-                                fontFamily: 'Rubik',
+
                               ),
                             ),
                             Spacer(),
@@ -140,10 +144,9 @@ class _HomeState extends State<Home> {
                               children: [
                                 Text(
                                   "Apps",
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: 'Rubik'),
+                                  style: GoogleFonts.rubik(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,),
                                 ),
                                 Spacer(),
                               ],
@@ -151,13 +154,16 @@ class _HomeState extends State<Home> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: TabBar(
-                                labelColor: Colors.black,
+                                labelColor: Color(0xFF4E86F7),
                                 indicator: UnderlineTabIndicator(
                                   borderSide: BorderSide(
-                                      width: 4.0, color: Color(0xFF4E86F7)),
-                                  insets: EdgeInsets.symmetric(horizontal: 0),
+
+                                      width: 3.0, color: Color(0xFF4E86F7)),
+                                  insets: EdgeInsets.symmetric(horizontal: 12),
                                 ),
                                 isScrollable: true,
+                                unselectedLabelColor: Colors.black,
+
                                 tabs: [
                                   Tab(text: "Recent"),
                                   Tab(

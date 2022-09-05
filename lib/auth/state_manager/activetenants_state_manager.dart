@@ -62,7 +62,7 @@ class ActiveTenantsCubit extends Cubit<States> {
         LoginResponse TT = LoginResponse.fromJson(value.result);
          _authService.setToken(TT.accessToken ??"",);
         // _authService.setToken(value.data.insideData ?? "");
-    Navigator.push(screenState.context, MaterialPageRoute(builder: (context)=>NavigationBarr()));
+    Navigator.pushAndRemoveUntil(screenState.context, MaterialPageRoute(builder: (context)=>NavigationBarr()),(route) => false,);
       }
 
     });
